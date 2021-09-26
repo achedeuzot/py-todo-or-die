@@ -28,8 +28,10 @@ result == 42 # True
 result = todo_or_die(42, "Fix this in 6 months", by=datetime.date(2021, 6, 31))
 result == 42 # True
 
+from myapp import __version__
+
 # Finally, you can use it as a function decorator
-@TodoOrDie("This function should be removed in the next version", when= build > 2000)
+@TodoOrDie("This function should be removed in the next version", when=__version__ > 2000)
 def myfunc(some = "arg"):
     pass
 

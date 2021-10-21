@@ -36,7 +36,7 @@ def _raise_if_datetime_overdue(expires, message):
     if expires is None:
         return None
     if isinstance(expires, datetime.date):
-        expires = datetime.datetime.combine(expires.today(), datetime.datetime.min.time())
+        expires = datetime.datetime.combine(expires, datetime.datetime.min.time())
     if expires and _utcnow() > expires:
         raise OverdueException(f'TODO: "{message}" came due on {_utcnow()}. Do it!')
 
